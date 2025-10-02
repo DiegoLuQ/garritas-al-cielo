@@ -24,8 +24,8 @@ export default function RootLayout({
       <body className={cn("font-body antialiased bg-background text-foreground min-h-screen")}>
         <AuthProvider>
           {children}
-          <Toaster />
         </AuthProvider>
+        <Toaster />
       </body>
     </html>
   );
