@@ -1,3 +1,100 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "keyboard-1",
+      "description": "Mechanical keyboard with RGB lighting from an angle.",
+      "imageUrl": "https://images.unsplash.com/photo-1558050032-160f36233a07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtZWNoYW5pY2FsJTIwa2V5Ym9hcmR8ZW58MHx8fHwxNzU5Mzk3NzYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mechanical keyboard"
+    },
+    {
+      "id": "keyboard-2",
+      "description": "Top-down view of a mechanical keyboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1747633130999-dbf3527b0639?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxrZXlib2FyZCUyMHRvcHxlbnwwfHx8fDE3NTk0MTI1MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "keyboard top"
+    },
+    {
+      "id": "keyboard-3",
+      "description": "Close-up of RGB keys on a keyboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1733296444174-9fdd9ff7bc43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrZXlib2FyZCUyMGtleXN8ZW58MHx8fHwxNzU5NDEyNTA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "keyboard keys"
+    },
+    {
+      "id": "monitor-1",
+      "description": "Curved 4K monitor displaying a vibrant landscape.",
+      "imageUrl": "https://images.unsplash.com/photo-1635976457744-900f79574c3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjdXJ2ZWQlMjBtb25pdG9yfGVufDB8fHx8MTc1OTM1NzA2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "curved monitor"
+    },
+    {
+      "id": "monitor-2",
+      "description": "Back of a sleek modern monitor.",
+      "imageUrl": "https://images.unsplash.com/photo-1726592139831-8c9208590372?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb25pdG9yJTIwYmFja3xlbnwwfHx8fDE3NTk0MTI1MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "monitor back"
+    },
+    {
+      "id": "monitor-3",
+      "description": "A multi-monitor setup for productivity.",
+      "imageUrl": "https://images.unsplash.com/photo-1652067871281-7b691554346a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb25pdG9yJTIwc2V0dXB8ZW58MHx8fHwxNzU5NDEyNTA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "monitor setup"
+    },
+    {
+      "id": "mouse-1",
+      "description": "Ergonomic wireless mouse on a mousepad.",
+      "imageUrl": "https://images.unsplash.com/photo-1707592691247-5c3a1c7ba0e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aXJlbGVzcyUyMG1vdXNlfGVufDB8fHx8MTc1OTM0MzI4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wireless mouse"
+    },
+    {
+      "id": "mouse-2",
+      "description": "Side view of a gaming mouse.",
+      "imageUrl": "https://images.unsplash.com/photo-1605773527852-c546a8584ea3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnYW1pbmclMjBtb3VzZXxlbnwwfHx8fDE3NTkzNTc4NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gaming mouse"
+    },
+    {
+      "id": "mouse-3",
+      "description": "A person holding an ergonomic mouse.",
+      "imageUrl": "https://images.unsplash.com/photo-1694670929860-9f1802788930?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlcmdvbm9taWMlMjBtb3VzZXxlbnwwfHx8fDE3NTkzMjMyMzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ergonomic mouse"
+    },
+    {
+      "id": "headphones-1",
+      "description": "Noise-cancelling headphones on a stand.",
+      "imageUrl": "https://images.unsplash.com/photo-1612478120623-0acf9e231d27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxub2lzZSUyMGNhbmNlbGxpbmd8ZW58MHx8fHwxNzU5NDEyNTA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "noise cancelling"
+    },
+    {
+      "id": "headphones-2",
+      "description": "A person wearing modern headphones.",
+      "imageUrl": "https://images.unsplash.com/photo-1631281638487-48d61216ba80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3ZWFyaW5nJTIwaGVhZHBob25lc3xlbnwwfHx8fDE3NTkzOTg2MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wearing headphones"
+    },
+    {
+      "id": "headphones-3",
+      "description": "Close-up of the ear cup of a pair of headphones.",
+      "imageUrl": "https://images.unsplash.com/photo-1708164333066-dabc2dac17d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoZWFkcGhvbmUlMjBkZXRhaWx8ZW58MHx8fHwxNzU5NDAxMDAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "headphone detail"
+    },
+    {
+      "id": "webcam-1",
+      "description": "HD webcam mounted on a monitor.",
+      "imageUrl": "https://images.unsplash.com/photo-1636569826709-8e07f6104992?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoZCUyMHdlYmNhbXxlbnwwfHx8fDE3NTk0MTI1MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hd webcam"
+    },
+    {
+      "id": "webcam-2",
+      "description": "Front view of a modern webcam.",
+      "imageUrl": "https://images.unsplash.com/photo-1758874572744-26aa02a8f5c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwd2ViY2FtfGVufDB8fHx8MTc1OTQxMjUwOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern webcam"
+    },
+    {
+      "id": "chair-1",
+      "description": "Professional gaming chair in a gaming setup.",
+      "imageUrl": "https://images.unsplash.com/photo-1636487658581-a7d60d465e35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnYW1pbmclMjBjaGFpcnxlbnwwfHx8fDE3NTkzMTY3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gaming chair"
+    },
+    {
+      "id": "chair-2",
+      "description": "Side view of an ergonomic office chair.",
+      "imageUrl": "https://images.unsplash.com/photo-1505797149-43b0069ec26b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvZmZpY2UlMjBjaGFpcnxlbnwwfHx8fDE3NTkzNzE5NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office chair"
+    }
+  ]
 }
