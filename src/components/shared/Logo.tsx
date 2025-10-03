@@ -1,11 +1,12 @@
 import { Box } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <div className={cn("flex items-center gap-2 text-primary", className)}>
+    <Link href="/" className={cn("flex items-center gap-2 text-primary", className)}>
       <Box className="h-6 w-6" />
       <span className="font-headline font-bold text-xl">E-Shop</span>
-    </div>
+    </Link>
   );
 }
