@@ -23,31 +23,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
-    const checkUser = async () => {
-      const storedToken = localStorage.getItem('token');
-      const storedUser = localStorage.getItem('user');
-
-      if (storedToken && storedUser) {
-        try {
-          // You might want to verify the token with the backend here
-          const verification = await verifyToken(storedToken);
-          if (verification.valid) {
-            setToken(storedToken);
-            setUser(JSON.parse(storedUser));
-          } else {
-            // Token is invalid, clear storage
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-          }
-        } catch (error) {
-          console.error("Token verification failed", error);
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-        }
-      }
-      setIsLoading(false);
-    };
-    checkUser();
+    const storedToken = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
+    if (storedToken && storedUser) {
+        setToken(storedToken);
+        setUser(JSON.parse(storedUser));
+    }
+    setIsLoading(false);
   }, []);
 
   const login = (newToken: string, newUser: User) => {
