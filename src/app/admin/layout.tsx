@@ -14,12 +14,19 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   React.useEffect(() => {
-    if (!isLoading && (!isAuthenticated || user?.role !== 'admin')) {
+    // No hacer nada mientras se está cargando el estado de autenticación
+    if (isLoading) {
+      return;
+    }
+
+    // Cuando la carga ha terminado, verificar si el usuario no está autenticado o no es admin
+    if (!isAuthenticated || user?.role !== 'admin') {
       router.replace('/login');
     }
   }, [isAuthenticated, isLoading, user, router]);
 
-  if (isLoading || !isAuthenticated || user?.role !== 'admin') {
+  // Mostrar un loader mientras se verifica el estado de autenticación
+  if (isLoading) {
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -27,7 +34,17 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
     );
   }
 
-  return <>{children}</>;
+  // Si después de cargar, el usuario está autenticado y es admin, mostrar el contenido
+  if (isAuthenticated && user?.role === 'admin') {
+    return <>{children}</>;
+  }
+  
+  // Si no, no mostrar nada mientras se redirige (o mostrar el loader de nuevo)
+  return (
+    <div className="flex h-screen w-full items-center justify-center">
+      <Loader2 className="h-8 w-8 animate-spin text-primary" />
+    </div>
+  );
 }
 
 export default function AdminLayout({
