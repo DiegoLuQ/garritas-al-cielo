@@ -1,8 +1,11 @@
+"use client";
 
 import { TrackingTable } from '@/components/admin/tracking/TrackingTable';
 import { getTrackedClicks } from '@/lib/api';
-import { Suspense } from 'react';
+import { useState, useEffect } from 'react';
+import type { ProductClick } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Loader2 } from 'lucide-react';
 
 function TrackingSkeleton() {
   return (
@@ -16,13 +19,24 @@ function TrackingSkeleton() {
   );
 }
 
-async function TrackingData() {
-  // API Call: Fetch tracked clicks from the backend.
-  const clicks = await getTrackedClicks();
-  return <TrackingTable data={clicks} />;
-}
-
 export default function TrackingPage() {
+  const [clicks, setClicks] = useState<ProductClick[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchClicks() {
+      try {
+        const data = await getTrackedClicks();
+        setClicks(data);
+      } catch (error) {
+        console.error("Failed to fetch tracked clicks:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchClicks();
+  }, []);
+
   return (
     <div>
       <div className="mb-8">
@@ -30,9 +44,13 @@ export default function TrackingPage() {
         <p className="text-muted-foreground">Revisa los clics que los usuarios han hecho en los productos.</p>
       </div>
       
-      <Suspense fallback={<TrackingSkeleton />}>
-        <TrackingData />
-      </Suspense>
+      {loading ? (
+         <div className="flex justify-center items-center h-64">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      ) : (
+        <TrackingTable data={clicks} />
+      )}
     </div>
   );
 }
