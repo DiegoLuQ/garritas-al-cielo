@@ -31,3 +31,10 @@ export type User = {
   username: string;
   role: 'admin' | 'user';
 };
+
+export type ProductClick = {
+  id: string;
+  productCode: string;
+  productName: string;
+  timestamp: string;
+};

@@ -1,19 +1,35 @@
+"use client";
+
 import type { Product } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import ProductCarousel from './ProductCarousel';
 import { Button } from '@/components/ui/button';
 import { Star, Tag, Zap, MessageCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { trackProductClick } from '@/lib/api';
+import { useToast } from '@/hooks/use-toast';
 
 type ProductCardProps = {
   product: Product;
 };
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP;
-
+// This component is now a client component to handle the click event.
 export default function ProductCard({ product }: ProductCardProps) {
-  const whatsappMessage = `https://wa.me/${whatsappNumber}?text=Quiero%20el%20producto%20${product.codigo}%20-%20${product.nombre || product.descripcion}`;
+  const { toast } = useToast();
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP;
   const productName = product.nombre || product.descripcion;
+  const whatsappMessage = `https://wa.me/${whatsappNumber}?text=Quiero%20el%20producto%20${product.codigo}%20-%20${productName}`;
+
+  const handleConsultarClick = () => {
+    // API Call: Track the product click.
+    trackProductClick({ productCode: product.codigo, productName: productName });
+    toast({
+      title: 'Seguimiento',
+      description: `Clic en "${productName}" registrado.`,
+    });
+    // Open WhatsApp link
+    window.open(whatsappMessage, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -42,11 +58,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className="text-2xl font-bold font-headline text-primary">
           ${product.precio.toLocaleString('es-CL')}
         </p>
-        <Button asChild disabled={!product.disponible}>
-          <a href={whatsappMessage} target="_blank" rel="noopener noreferrer">
+        <Button onClick={handleConsultarClick} disabled={!product.disponible}>
             <MessageCircle className="mr-2 h-4 w-4" />
             Consultar
-          </a>
         </Button>
       </CardFooter>
     </Card>

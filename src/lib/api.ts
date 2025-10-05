@@ -5,7 +5,7 @@
  * NOTE: For development purposes, mock data is returned.
  * In a production environment, these functions would make actual `fetch` calls.
  */
-import type { Product, SiteConfig } from './types';
+import type { Product, SiteConfig, ProductClick } from './types';
 import { placeholderImages } from './placeholder-images.json';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -27,6 +27,8 @@ let mockSiteConfig: SiteConfig = {
   contactData: 'contacto@eshop.com',
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP || '+56912345678',
 };
+
+const mockProductClicks: ProductClick[] = [];
 
 
 const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
@@ -115,4 +117,25 @@ export async function updateSiteConfig(config: Partial<SiteConfig>, token: strin
   await delay(500);
   mockSiteConfig = { ...mockSiteConfig, ...config };
   return mockSiteConfig;
+}
+
+
+// --- TRACKING API ---
+
+export async function trackProductClick({ productCode, productName }: { productCode: string, productName: string }): Promise<void> {
+  console.log(`[API MOCK] POST: ${API_URL}/tracking/click`, { productCode, productName });
+  await delay(100); // Quick operation
+  mockProductClicks.unshift({
+    id: String(Date.now()),
+    productCode,
+    productName,
+    timestamp: new Date().toISOString(),
+  });
+}
+
+export async function getTrackedClicks(): Promise<ProductClick[]> {
+    console.log(`[API MOCK] GET: ${API_URL}/tracking/clicks`);
+    await delay(500);
+    // Return a sorted copy
+    return [...mockProductClicks].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 }

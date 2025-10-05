@@ -4,7 +4,7 @@ import React from 'react';
 import { useAuth } from '@/hooks/use-auth';
 import { useRouter, usePathname } from 'next/navigation';
 import { Sidebar, SidebarProvider, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarHeader, SidebarFooter, SidebarInset } from '@/components/ui/sidebar';
-import { LogOut, Settings, ShoppingBag, LayoutDashboard, Loader2 } from 'lucide-react';
+import { LogOut, Settings, ShoppingBag, LayoutDashboard, Loader2, MousePointerClick } from 'lucide-react';
 import { Logo } from '@/components/shared/Logo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Link from 'next/link';
@@ -46,6 +46,7 @@ export default function AdminLayout({
   const navItems = [
     { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
     { href: '/admin/productos', label: 'Productos', icon: ShoppingBag },
+    { href: '/admin/seguimiento', label: 'Seguimiento', icon: MousePointerClick },
     { href: '/admin/configuracion-sitio', label: 'Configuración', icon: Settings },
   ];
 
