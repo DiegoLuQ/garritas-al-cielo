@@ -12,19 +12,14 @@ import Link from 'next/link';
 function AuthGuard({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading, user } = useAuth();
   const router = useRouter();
-  const [isVerifying, setIsVerifying] = React.useState(true);
 
   React.useEffect(() => {
-    if (!isLoading) {
-      if (!isAuthenticated || user?.role !== 'admin') {
-        router.replace('/login');
-      } else {
-        setIsVerifying(false);
-      }
+    if (!isLoading && (!isAuthenticated || user?.role !== 'admin')) {
+      router.replace('/login');
     }
   }, [isAuthenticated, isLoading, user, router]);
 
-  if (isLoading || isVerifying) {
+  if (isLoading || !isAuthenticated || user?.role !== 'admin') {
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -55,9 +50,7 @@ export default function AdminLayout({
       <SidebarProvider>
         <Sidebar>
           <SidebarHeader>
-            <Link href="/">
-              <Logo />
-            </Link>
+            <Logo />
           </SidebarHeader>
           <SidebarMenu className="flex-grow">
             {navItems.map((item) => (
