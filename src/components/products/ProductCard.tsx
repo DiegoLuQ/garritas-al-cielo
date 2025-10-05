@@ -29,8 +29,8 @@ export default function ProductCard({ product }: ProductCardProps) {
       price: product.precio,
     });
     toast({
-      title: 'Seguimiento',
-      description: `Clic en "${productName}" registrado.`,
+      title: 'Redirigiendo a WhatsApp',
+      description: `Para cotizar sobre "${productName}".`,
     });
     // Open WhatsApp link
     window.open(whatsappMessage, '_blank', 'noopener,noreferrer');
