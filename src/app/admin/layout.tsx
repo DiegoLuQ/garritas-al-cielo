@@ -55,7 +55,9 @@ export default function AdminLayout({
       <SidebarProvider>
         <Sidebar>
           <SidebarHeader>
-            <Logo />
+            <Link href="/">
+              <Logo />
+            </Link>
           </SidebarHeader>
           <SidebarMenu className="flex-grow">
             {navItems.map((item) => (
