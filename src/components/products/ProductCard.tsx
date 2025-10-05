@@ -12,15 +12,16 @@ type ProductCardProps = {
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP;
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const whatsappMessage = `https://wa.me/${whatsappNumber}?text=Quiero%20el%20producto%20${product.codigo}%20-%20${product.nombre}`;
+  const whatsappMessage = `https://wa.me/${whatsappNumber}?text=Quiero%20el%20producto%20${product.codigo}%20-%20${product.nombre || product.descripcion}`;
+  const productName = product.nombre || product.descripcion;
 
   return (
     <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-shadow duration-300">
       <CardHeader className="p-0">
-        <ProductCarousel images={product.imagenes} productName={product.nombre} />
+        <ProductCarousel images={product.imagenes} productName={productName} />
       </CardHeader>
       <CardContent className="flex-grow p-4 space-y-3">
-        <CardTitle className="font-headline text-xl">{product.nombre}</CardTitle>
+        <CardTitle className="font-headline text-xl">{productName}</CardTitle>
         <p className="text-sm text-muted-foreground line-clamp-3">{product.descripcion}</p>
         <div className="flex items-center justify-between text-sm text-muted-foreground">
           <div className="flex items-center gap-1">

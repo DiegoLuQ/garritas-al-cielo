@@ -41,8 +41,9 @@ export const getColumns = (
     cell: ({ row }) => {
       const imagenes = row.getValue('imagenes') as string[];
       const firstImage = imagenes?.[0];
+      const productName = row.original.nombre || row.original.descripcion;
       return firstImage ? (
-        <Image src={firstImage} alt={row.original.nombre} width={40} height={40} className="rounded-md object-cover" />
+        <Image src={firstImage} alt={productName} width={40} height={40} className="rounded-md object-cover" />
       ) : (
         <div className="w-10 h-10 bg-muted rounded-md flex items-center justify-center text-xs text-muted-foreground">Sin foto</div>
       );
@@ -59,7 +60,7 @@ export const getColumns = (
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
-    cell: ({ row }) => <div className="font-medium">{row.getValue('nombre')}</div>,
+    cell: ({ row }) => <div className="font-medium">{row.getValue('nombre') || row.original.descripcion}</div>,
   },
   {
     accessorKey: 'codigo',

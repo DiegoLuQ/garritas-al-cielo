@@ -34,7 +34,7 @@ export function DeleteProductDialog({
           <AlertDialogTitle>¿Estás seguro de que quieres eliminar este producto?</AlertDialogTitle>
           <AlertDialogDescription>
             Esta acción no se puede deshacer. Esto eliminará permanentemente el producto
-            <span className="font-semibold"> {product.nombre}</span> de nuestros servidores.
+            <span className="font-semibold"> {product.nombre || product.descripcion}</span> de nuestros servidores.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
