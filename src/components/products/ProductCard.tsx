@@ -21,8 +21,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   const whatsappMessage = `https://wa.me/${whatsappNumber}?text=Quiero%20el%20producto%20${product.codigo}%20-%20${productName}`;
 
   const handleConsultarClick = () => {
-    // API Call: Track the product click.
-    trackProductClick({ productCode: product.codigo, productName: productName });
+    // API Call: Track the product click with more details.
+    trackProductClick({ 
+      productCode: product.codigo, 
+      productName: productName,
+      description: product.descripcion,
+      price: product.precio,
+    });
     toast({
       title: 'Seguimiento',
       description: `Clic en "${productName}" registrado.`,

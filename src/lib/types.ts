@@ -36,5 +36,7 @@ export type ProductClick = {
   id: string;
   productCode: string;
   productName: string;
+  description: string;
+  price: number;
   timestamp: string;
 };

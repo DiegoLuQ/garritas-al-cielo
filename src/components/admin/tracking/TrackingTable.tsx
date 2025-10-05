@@ -19,6 +19,13 @@ interface TrackingTableProps {
 
 export function TrackingTable({ data }: TrackingTableProps) {
 
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('es-CL', {
+      style: 'currency',
+      currency: 'CLP',
+    }).format(amount);
+  }
+
   return (
     <div className="rounded-md border">
       <Table>
@@ -26,6 +33,8 @@ export function TrackingTable({ data }: TrackingTableProps) {
           <TableRow>
             <TableHead>Producto</TableHead>
             <TableHead>Código</TableHead>
+            <TableHead>Descripción</TableHead>
+            <TableHead className="text-right">Precio</TableHead>
             <TableHead className="text-right">Fecha y Hora</TableHead>
           </TableRow>
         </TableHeader>
@@ -37,6 +46,8 @@ export function TrackingTable({ data }: TrackingTableProps) {
                 <TableCell>
                   <Badge variant="outline">{click.productCode}</Badge>
                 </TableCell>
+                <TableCell className="text-sm text-muted-foreground max-w-xs truncate">{click.description}</TableCell>
+                <TableCell className="text-right font-medium">{formatCurrency(click.price)}</TableCell>
                 <TableCell className="text-right font-mono text-sm">
                   {format(new Date(click.timestamp), "PPP p", { locale: es })}
                 </TableCell>
@@ -44,7 +55,7 @@ export function TrackingTable({ data }: TrackingTableProps) {
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={3} className="h-24 text-center">
+              <TableCell colSpan={5} className="h-24 text-center">
                 Aún no hay clics registrados.
               </TableCell>
             </TableRow>

@@ -122,13 +122,12 @@ export async function updateSiteConfig(config: Partial<SiteConfig>, token: strin
 
 // --- TRACKING API ---
 
-export async function trackProductClick({ productCode, productName }: { productCode: string, productName: string }): Promise<void> {
-  console.log(`[API MOCK] POST: ${API_URL}/tracking/click`, { productCode, productName });
+export async function trackProductClick(clickData: Omit<ProductClick, 'id' | 'timestamp'>): Promise<void> {
+  console.log(`[API MOCK] POST: ${API_URL}/tracking/click`, clickData);
   await delay(100); // Quick operation
   mockProductClicks.unshift({
     id: String(Date.now()),
-    productCode,
-    productName,
+    ...clickData,
     timestamp: new Date().toISOString(),
   });
 }
